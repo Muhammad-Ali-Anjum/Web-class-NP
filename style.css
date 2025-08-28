@@ -1,0 +1,39 @@
+.main{
+    width: 20%;
+    height: 20vh;
+    background-color: aquamarine;
+}
+.main:hover{
+    width: 25%;
+    height: 25vh;
+    background-color: rgb(13, 7, 18);
+    transition: 4s;
+}
+.mn{
+       width: 25%;
+    height: 25vh;
+    position: relative;
+}
+
+.sub{
+     width: 25%;
+    height: 25vh;
+    /* background-color: rgb(34, 32, 36); */
+    transition: 4s;
+    display: none;
+    position: absolute;
+
+}
+.mn:hover .sub{
+    
+    display: block;
+    color: rgb(255, 0, 0);
+
+}
+input[type=text] {
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+}
