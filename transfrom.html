@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main{
+        width: 20%;
+        height: 30vh;
+        background-color: aquamarine;
+        /* transform: rotate(60deg); */
+          transition: width 2s, height 4s;
+          transition-timing-function: ease-out;
+          animation-name: exp;
+          animation-duration: 32s;
+
+    }
+    @keyframes exp {
+  0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}
+</style>
+<body>
+    <div class="main"></div>
+</body>
+</html>
