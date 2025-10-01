@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Process Flow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(to right, #4b6cb7, #182848);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .process-flow {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .flow-diagram {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .flow-item {
+            text-align: center;
+            width: 160px;
+            padding: 20px 15px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+        
+        .flow-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .flow-item i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .flow-item h3 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+        
+        .flow-item.user-input {
+            border-top: 5px solid #6a11cb;
+        }
+        
+        .flow-item.translator {
+            border-top: 5px solid #2575fc;
+        }
+        
+        .flow-item.translation-result {
+            border-top: 5px solid #00b09b;
+        }
+        
+        .flow-item.model {
+            border-top: 5px solid #ff7e5f;
+        }
+        
+        .arrow {
+            position: absolute;
+            height: 2px;
+            background-color: #4b6cb7;
+            top: 50%;
+            z-index: 1;
+        }
+        
+        .arrow::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: -4px;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid #4b6cb7;
+            border-right: 2px solid #4b6cb7;
+            transform: rotate(45deg);
+        }
+        
+        .user-interaction {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .interaction-card {
+            width: 48%;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .interaction-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .user-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(to right, #4b6cb7, #182848);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+        
+        .interaction-card h3 {
+            color: #4b6cb7;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .interaction-card p {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+        
+        .process-description {
+            margin-top: 40px;
+            text-align: center;
+            max-width: 800px;
+        }
+        
+        .process-description h2 {
+            color: #4b6cb7;
+            margin-bottom: 20px;
+        }
+        
+        .process-description p {
+            line-height: 1.6;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .flow-diagram {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .flow-item {
+                width: 45%;
+                margin: 10px;
+            }
+            
+            .arrow {
+                display: none;
+            }
+            
+            .user-interaction {
+                flex-direction: column;
+            }
+            
+            .interaction-card {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Translation Process Flow</h1>
+            <p class="subtitle">Visualizing the translation workflow from input to output</p>
+        </header>
+        
+        <div class="process-flow">
+            <div class="flow-diagram">
+                <div class="flow-item user-input">
+                    <i class="fas fa-user"></i>
+                    <h3>User Input</h3>
+                </div>
+                
+                <div class="arrow" style="left: 160px; width: calc(25% - 160px);"></div>
+                
+                <div class="flow-item translator">
+                    <i class="fas fa-language"></i>
+                    <h3>Translator</h3>
+                </div>
+                
+                <div class="arrow" style="left: calc(25% + 160px); width: calc(25% - 160px);"></div>
+                
+                <div class="flow-item translation-result">
+                    <i class="fas fa-exchange-alt"></i>
+                    <h3>Translation Result</h3>
+                </div>
+                
+                <div class="arrow" style="left: calc(50% + 160px); width: calc(25% - 160px);"></div>
+                
+                <div class="flow-item model">
+                    <i class="fas fa-brain"></i>
+                    <h3>Model</h3>
+                </div>
+            </div>
+            
+            <div class="user-interaction">
+                <div class="interaction-card">
+                    <div class="user-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Enter Ball Text 0</h3>
+                    <p>User provides input text for translation</p>
+                </div>
+                
+                <div class="interaction-card">
+                    <div class="user-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Show Translated Text 0</h3>
+                    <p>Translated output is displayed to the user</p>
+                </div>
+            </div>
+            
+            <div class="process-description">
+                <h2>How the Translation Process Works</h2>
+                <p>The translation process begins with user input, which is then processed by the translator component. The translator uses advanced language models to convert the input text into the desired output language.</p>
+                <p>The translation result is then delivered back to the user, completing the seamless process of cross-language communication.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation for flow items
+        document.addEventListener('DOMContentLoaded', function() {
+            const flowItems = document.querySelectorAll('.flow-item');
+            
+            flowItems.forEach((item, index) => {
+                // Add delay based on index for sequential animation
+                item.style.animationDelay = `${index * 0.2}s`;
+                item.classList.add('animate__animated', 'animate__fadeInUp');
+            });
+            
+            // Add interaction to the cards
+            const cards = document.querySelectorAll('.interaction-card');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('highlighted');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

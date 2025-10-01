@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* .hed{
+        display: flex;
+        position: relative;
+    } */
+    .main{
+        width: 200px;
+    z-index: 2px;
+        height: 200px;
+        background-color: yellowgreen;
+
+    
+    }
+    .main1{
+        position: relative  ;
+        width: 200px;
+        height: 200px;
+        background-color: rgb(3, 11, 26);
+        z-index: 3px;
+        right: 10%;
+        top: 5vh;
+    }
+    /* li{
+        float: right;
+        display: inline;
+    } */
+    h1{
+       margin-top: 120px;
+       /* display: inline; */
+       display: block;
+background-color: aqua;       
+    }
+    .sub{
+        display: none;
+
+    }
+    .drop{
+        width: 100%;
+        height: 200px;
+    }
+    .drop:hover .sub{
+        display: block;
+
+    }
+</style>
+<body>
+<div class="hed">
+        <div class="main"></div>
+    <div class="main1"></div>
+    <ul>
+        <li>home side </li>
+        <li>home side </li>
+        <li>home side </li>
+    </ul>
+    
+</div>
+<h1>Lorem ipsum dolor </h1>
+<div class="drop">
+    
+    <div class="sub1">home</div>
+    <div class="sub">
+        <ul>
+        <li>home side </li>
+        <li>home side </li>
+        <li>home side </li>
+    </ul>
+    </div>
+</div>
+</body>
+</html>

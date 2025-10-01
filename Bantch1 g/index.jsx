@@ -1,6 +1,0 @@
-<>
-<div className="dev"></div>
-
-
-
-</>
